@@ -9,11 +9,16 @@ Palette: black, white and navy on a blue background.
 | File | Tab |
 | --- | --- |
 | `index.html` | Home |
-| `research.html`, `projects.html`, `team.html`, `contact.html` | Group pages |
+| `people.html` | People (placeholder until the team template is added) |
 | `quizzes.html` | Quiz library (pick a set, or a mixed review) |
 | `course/` | Beginner course on social robotics (10 pages) |
 | `assets/site.css`, `site.js` | Shared style and mobile menu |
 | `assets/quiz.js`, `quiz-data.js`, `quiz-library.js` | Quiz engine, questions, library page |
+
+## University emblem
+
+Put the official emblem at `assets/images/tsukuba-emblem.png` (square, transparent
+background). It appears next to the site name automatically; until then only the name shows.
 
 ## Publishing
 
