@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 3: Foundations | Course</title>
+<meta name="description" content="Beginner course on social robotics, Happy Social Robotics.">
+<meta name="theme-color" content="#071f4a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="container header-row">
+<a class="brand" href="../index.html"><span class="emblem" aria-hidden="true">UT</span><span class="brand-text"><span class="brand-kicker">University of Tsukuba</span><span class="brand-title">Happy Social Robotics</span></span></a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+<nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="../index.html">Home</a><a href="../research.html">Research</a><a href="../projects.html">Projects</a><a href="../quizzes.html">Quizzes</a><a href="../course/index.html" aria-current="page">Course</a><a href="../team.html">Team</a><a href="../contact.html">Contact</a></nav>
+</div>
+<div class="unitnav"><nav class="container" aria-label="Course units"><span class="label">Course</span><a href="index.html">Overview</a><a href="watch.html">1 Watch</a><a href="quiz.html">2 Quiz</a><a href="foundations.html" aria-current="page">3 Foundations</a><a href="types.html">4 Types</a><a href="psychology.html">5 Psychology</a><a href="behavior.html">6 Behavior</a><a href="methods.html">7 Methods</a><a href="publish.html">8 Publish</a><a href="references.html">References</a></nav></div>
+</header>
+<main id="main" class="page"><div class="container"><article class="paper">
+  <p class="kicker">Unit 3 of 8</p>
+  <h1>Foundations: what makes a robot social?</h1>
+  <p class="lede">The videos showed a ball on wheels, an expressive head, a classroom companion and a seal. This unit gives you one definition that covers all of them, a short history, and a simple model of how any social robot works.</p>
+
+  <h2>1. A working definition</h2>
+  <div class="concept">
+    <dl>
+      <dt>Claim</dt>
+      <dd>A robot is social when social interaction with people is important to what it is for. Appearance is not the test.</dd>
+      <dt>Evidence</dt>
+      <dd>Fong, Nourbakhsh and Dautenhahn (2003) review "socially interactive robots", meaning robots for which social human-robot interaction is important, and build a taxonomy of design methods and system components around that idea.</dd>
+      <dt>Implication</dt>
+      <dd>Judge a design by the interaction it must support. A robot that must yield in a corridor and a robot that must comfort a patient have different social requirements, and neither needs to look human.</dd>
+      <dt>Open question</dt>
+      <dd>Where is the boundary? A voice assistant with no body, a telepresence robot and a robot vacuum that people name and talk to all sit near the line. Many papers still begin by arguing where their robot falls.</dd>
+    </dl>
+  </div>
+
+  <h3>Two traditions called "social"</h3>
+  <p>Fong et al. trace two lines of work. In the first, many simple robots coordinate through collective behavior inspired by social insects. Such societies are anonymous: any member can stand in for another. In the second, individuals matter. Partners recognize each other, form relationships and follow shared norms. Dautenhahn and Billard describe social robots in this second sense as embodied agents within a mixed group of robots and humans that recognize one another, interact socially, have histories and communicate and learn from each other. This course follows the second tradition.</p>
+
+  <div class="box">
+    <span class="label">Five questions to place any robot</span>
+    <ol>
+      <li>Who interacts with it?</li>
+      <li>In what setting, and for how long?</li>
+      <li>What must it understand about people?</li>
+      <li>What does it express back, and through which channel?</li>
+      <li>What changes for the person afterward?</li>
+    </ol>
+  </div>
+  <p>Try the questions on Jackrabbot, Kismet, Tega and PARO. Your answers will differ on almost every line. That variety is why the field needs several kinds of expertise.</p>
+
+  <h2>2. A short timeline</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>When</th><th>What happened</th><th>Why it matters</th></tr></thead>
+    <tbody>
+      <tr><td class="date">Late 1940s</td><td>Walter's robotic tortoises approach and avoid each other using lights (cited by Fong et al.)</td><td>Interaction that looks social with no explicit communication</td></tr>
+      <tr><td class="date">1970</td><td>Mori's essay on affinity and human likeness</td><td>Origin of the uncanny valley hypothesis</td></tr>
+      <tr><td class="date">1996</td><td>Reeves and Nass publish <em>The Media Equation</em></td><td>People respond socially to computers and media</td></tr>
+      <tr><td class="date">1997</td><td>Breazeal begins building Kismet at MIT, by her own account</td><td>An expressive robot built around social cues</td></tr>
+      <tr><td class="date">2003</td><td>Fong et al. publish their survey</td><td>A shared vocabulary and taxonomy</td></tr>
+      <tr><td class="date">2007</td><td>Epley et al. on anthropomorphism; Gray et al. on mind perception</td><td>Psychological theories the field still uses</td></tr>
+      <tr><td class="date">2010</td><td>A news report counts about 1,300 PARO robots in use in Japan</td><td>Social robots in routine care, not only labs</td></tr>
+      <tr><td class="date">2016</td><td>Jackrabbot at Stanford; Social LSTM at CVPR; Tega presented by MIT</td><td>Learning social navigation; long-term child interaction</td></tr>
+      <tr><td class="date">2018</td><td>Belpaeme et al. review robots for education</td><td>A meta-analysis with effect sizes</td></tr>
+      <tr><td class="date">2027</td><td>HRI in Santa Clara (March); RO-MAN in Waterloo (August); ICSR + Health in Potsdam (July)</td><td>Where you can publish next. See Unit 8.</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>3. A simple loop</h2>
+  <p>Most social robots can be understood as a repeating loop. This is a teaching simplification, not Fong et al.'s taxonomy, but it helps you ask where a given study intervenes.</p>
+  <ol class="loop">
+    <li><b>Sense</b>Cameras, microphones, touch, distance sensors.</li>
+    <li><b>Interpret</b>Faces, speech, gestures, who is where, what they want.</li>
+    <li><b>Decide</b>Choose a response given goals, norms and the person's state.</li>
+    <li><b>Express</b>Gaze, face, voice, gesture, movement.</li>
+    <li><b>Learn</b>Update a model of this person or situation over time.</li>
+  </ol>
+  <p>Kismet is best known for <em>Express</em>. Jackrabbot's research centers on <em>Sense</em> and <em>Decide</em> for movement. Tega's storytelling adds <em>Learn</em>: it updates its belief about the child's engagement. A study can focus on one step, or compare two versions of the same step with people.</p>
+
+  <h2>4. Why a body?</h2>
+  <div class="concept">
+    <dl>
+      <dt>Claim</dt>
+      <dd>Physical presence can improve interaction, but it has to earn its cost.</dd>
+      <dt>Evidence</dt>
+      <dd>Belpaeme et al. (2018) credit much of the success of robot tutors to physical presence that traditional learning technology lacks. They also note that virtual agents can offer some of the same capabilities without the expense, upkeep and installation burden, so using a robot should be explicitly justified.</dd>
+      <dt>Implication</dt>
+      <dd>In your own work, say what the body adds: touch, shared physical space, gaze toward objects, attention from other people in the room. If the answer is "nothing", test a screen agent instead.</dd>
+      <dt>Open question</dt>
+      <dd>Which effects come from embodiment itself and which from novelty? Long-term studies are still rare.</dd>
+    </dl>
+  </div>
+
+  <h2>5. Neighboring fields</h2>
+  <p>The HRI conference describes its community as spanning robotics, human-computer interaction, human factors, artificial intelligence, engineering and the social and behavioral sciences. Expect to read outside your home discipline. If you come from engineering, spend time on psychology (Unit 5) and methods (Unit 7). If you come from psychology, learn what the hardware can and cannot do.</p>
+
+  <h2>Check yourself</h2>
+  <div class="quiz" data-sets="s1"></div>
+
+  <nav class="pager" aria-label="Page navigation">
+    <a href="quiz.html">← Unit 2: Quiz</a>
+    <a href="types.html">Unit 4: Types →</a>
+  </nav>
+</article></div></main>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-grid">
+<div><h2>Happy Social Robotics</h2><p>A student robotics group at the University of Tsukuba, building human-centered robots that make everyday life better.</p></div>
+<div><h2>Explore</h2><ul><li><a href="../research.html">Research</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../quizzes.html">Quizzes</a></li><li><a href="../course/index.html">Course</a></li></ul></div>
+<div><h2>Connect</h2><p>hello@happy-social-robotics.org</p><p>University of Tsukuba<br>Tsukuba, Japan</p></div>
+</div>
+<p class="fine">Student group site. Course videos belong to their owners and play from YouTube.</p>
+</div>
+</footer>
+<script src="../assets/site.js"></script>
+<script src="../assets/quiz-data.js"></script>
+<script src="../assets/quiz.js"></script>
+</body>
+</html>

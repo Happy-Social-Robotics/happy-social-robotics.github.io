@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unit 6: Behavior | Course</title>
+<meta name="description" content="Beginner course on social robotics, Happy Social Robotics.">
+<meta name="theme-color" content="#071f4a">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:wght@400;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+<div class="container header-row">
+<a class="brand" href="../index.html"><span class="emblem" aria-hidden="true">UT</span><span class="brand-text"><span class="brand-kicker">University of Tsukuba</span><span class="brand-title">Happy Social Robotics</span></span></a>
+<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+<nav id="site-nav" class="site-nav" aria-label="Main navigation"><a href="../index.html">Home</a><a href="../research.html">Research</a><a href="../projects.html">Projects</a><a href="../quizzes.html">Quizzes</a><a href="../course/index.html" aria-current="page">Course</a><a href="../team.html">Team</a><a href="../contact.html">Contact</a></nav>
+</div>
+<div class="unitnav"><nav class="container" aria-label="Course units"><span class="label">Course</span><a href="index.html">Overview</a><a href="watch.html">1 Watch</a><a href="quiz.html">2 Quiz</a><a href="foundations.html">3 Foundations</a><a href="types.html">4 Types</a><a href="psychology.html">5 Psychology</a><a href="behavior.html" aria-current="page">6 Behavior</a><a href="methods.html">7 Methods</a><a href="publish.html">8 Publish</a><a href="references.html">References</a></nav></div>
+</header>
+<main id="main" class="page"><div class="container"><article class="paper">
+  <p class="kicker">Unit 6 of 8</p>
+  <h1>How robots signal</h1>
+  <p class="lede">Psychology tells you how people interpret a robot. This unit covers what the robot actually does: the channels it uses to be understood, and the design choices that a study can vary.</p>
+
+  <h2>1. Gaze</h2>
+  <div class="concept">
+    <dl>
+      <dt>Claim</dt>
+      <dd>Where a robot looks is a social signal. It can direct attention, manage turn-taking and show interest.</dd>
+      <dt>Evidence</dt>
+      <dd>Admoni and Scassellati (2017) review the field and sort it into three approaches. Human-centered work studies how people respond to gaze. Design-centered work changes features of the robot's gaze or appearance, often one at a time, such as how long it fixates. Technology-centered work builds the computational tools to generate gaze. They also note that the structure of the human eye makes gaze unusually easy to read.</dd>
+      <dt>Implication</dt>
+      <dd>Gaze is a good beginner variable: it is easy to manipulate on most platforms and has clear outcome measures. State which of the three approaches your study takes.</dd>
+      <dt>Open question</dt>
+      <dd>How should gaze behave with several people, and with robots whose eyes are screens or lights instead of mechanical eyes?</dd>
+    </dl>
+  </div>
+
+  <h2>2. Face and expression</h2>
+  <div class="concept">
+    <dl>
+      <dt>Claim</dt>
+      <dd>An expression must be both believable and readable, and those are different properties.</dd>
+      <dt>Evidence</dt>
+      <dd>MIT's Kismet project pages separate believability, how life-like the behavior appears, from readability, how well an observer interprets the intended expression. Kismet's face supports four functions: showing emotional state, giving social cues in conversation, taking part in behavioral responses such as closing the eyes, and synchronizing with speech. Expressions come from a continuous space of arousal, valence and stance, so the robot occupies one affective state at a time and its face can move smoothly between states.</dd>
+      <dt>Implication</dt>
+      <dd>Pilot-test expressions with a few people before the main study. Ask them what each expression means and compare it with what you intended.</dd>
+      <dt>Open question</dt>
+      <dd>Do expressions designed for faces carry over to robots with no face, such as a ball on wheels or a light bar?</dd>
+    </dl>
+  </div>
+
+  <h2>3. Body language and gesture</h2>
+  <div class="concept">
+    <dl>
+      <dt>Claim</dt>
+      <dd>The same nonverbal cues that shape impressions of people shape impressions of robots.</dd>
+      <dt>Evidence</dt>
+      <dd>In her TED talk, Breazeal says people use a robot's nonverbal cues to judge how persuasive, likable, engaging and trustworthy it is, and describes a collaboration with a psychology lab that used a humanoid robot to control specific cues. Treat this as a motivating account and read the underlying papers before citing it.</dd>
+      <dt>Implication</dt>
+      <dd>Robots let you vary a single gesture and hold everything else fixed, which is hard to do with people.</dd>
+      <dt>Open question</dt>
+      <dd>Which cues are universal, and which depend on culture?</dd>
+    </dl>
+  </div>
+
+  <h2>4. Speech and timing</h2>
+  <p>Kismet did not use language. It babbled, and its turn-taking with a person was fluid enough to feel like a conversation, according to the MIT AI Lab's clip descriptions. Timing carries meaning on its own: a pause, a quick reply or an interruption each signals something. In studies, speech is often the part that gets controlled by a hidden human operator, which is the subject of Unit 7.</p>
+
+  <h2>5. Space and motion</h2>
+  <div class="concept">
+    <dl>
+      <dt>Claim</dt>
+      <dd>A robot that moves among people is already behaving socially, whether or not it has a face.</dd>
+      <dt>Evidence</dt>
+      <dd>The Jackrabbot team at Stanford collected video of people moving around campus, turned it into coordinates and trained a model on it. Their paper "Social LSTM" (Alahi et al., 2016) replaces hand-crafted functions such as social forces with a model that learns human-human interaction from data. A pooling layer shares information among neighboring trajectories, and the model reproduces behaviors such as collision avoidance and group movement.</dd>
+      <dt>Implication</dt>
+      <dd>For this kind of work, your "participants" are often a dataset of pedestrians, and the study is part computer vision, part social science. That crosses into venues such as CVPR and ICRA as well as HRI.</dd>
+      <dt>Open question</dt>
+      <dd>How do people read a robot's intent from its path, and how should it signal that it will yield?</dd>
+    </dl>
+  </div>
+
+  <h2>6. Adaptation and personalization</h2>
+  <p>Tega updates a belief about a child's engagement as a story goes on. The 2026 HRI workshop on lifelong learning and personalization in long-term human-robot interaction (LEAP-HRI) takes this further: real environments are dynamic and human needs change, so robots must adapt over time. Most studies are still single sessions, so any study that spans several weeks stands out.</p>
+
+  <h2>7. Transparency and error</h2>
+  <p>Two 2026 HRI workshops show where the field is working. One asks how to design robots whose behavior is transparent and understandable. The other examines errors, mistakes and failures in humans and robots, including how trust is restored. Both are good places to find a first paper topic, and both accept short submissions (see Unit 8).</p>
+
+  <h2>A design vocabulary</h2>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Channel</th><th>What it can convey</th><th>What a study might vary</th><th>What it might measure</th></tr></thead>
+    <tbody>
+      <tr><td>Gaze</td><td>Attention, interest, turn-taking</td><td>Fixation length, direction, aversion</td><td>Object recall, eye contact, conversation flow</td></tr>
+      <tr><td>Face</td><td>Emotional state, feedback</td><td>Expression set, speed of change</td><td>Recognition accuracy, likeability</td></tr>
+      <tr><td>Gesture</td><td>Emphasis, intent, personality</td><td>Presence, size, timing</td><td>Perceived trust, persuasiveness</td></tr>
+      <tr><td>Voice and timing</td><td>Turn-taking, affect</td><td>Pitch, pause length, response latency</td><td>Engagement, perceived intelligence</td></tr>
+      <tr><td>Space and motion</td><td>Intent, politeness</td><td>Path, speed, passing distance</td><td>Comfort, distance kept, avoidance</td></tr>
+      <tr><td>Adaptation</td><td>Memory, care</td><td>Personalized versus fixed behavior</td><td>Engagement over sessions</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h2>Check yourself</h2>
+  <div class="quiz" data-sets="s4"></div>
+
+  <nav class="pager" aria-label="Page navigation">
+    <a href="psychology.html">← Unit 5: Psychology</a>
+    <a href="methods.html">Unit 7: Methods →</a>
+  </nav>
+</article></div></main>
+<footer class="site-footer">
+<div class="container">
+<div class="footer-grid">
+<div><h2>Happy Social Robotics</h2><p>A student robotics group at the University of Tsukuba, building human-centered robots that make everyday life better.</p></div>
+<div><h2>Explore</h2><ul><li><a href="../research.html">Research</a></li><li><a href="../projects.html">Projects</a></li><li><a href="../quizzes.html">Quizzes</a></li><li><a href="../course/index.html">Course</a></li></ul></div>
+<div><h2>Connect</h2><p>hello@happy-social-robotics.org</p><p>University of Tsukuba<br>Tsukuba, Japan</p></div>
+</div>
+<p class="fine">Student group site. Course videos belong to their owners and play from YouTube.</p>
+</div>
+</footer>
+<script src="../assets/site.js"></script>
+<script src="../assets/quiz-data.js"></script>
+<script src="../assets/quiz.js"></script>
+</body>
+</html>
