@@ -32,6 +32,9 @@
     '<circle class="rb-arc" cx="32" cy="32" r="' + R + '" stroke-dasharray="' + C.toFixed(2) + '" stroke-dashoffset="' + C.toFixed(2) + '"/></svg>' +
     '<b class="rb-num">0%</b><span class="rb-txt"><strong>Course progress</strong><em></em></span>';
   document.body.appendChild(badge);
+  var hdr = document.querySelector(".site-header");
+  function place() { if (hdr) document.documentElement.style.setProperty("--hh", hdr.getBoundingClientRect().height + "px"); }
+  place(); addEventListener("resize", place);
   var arc = badge.querySelector(".rb-arc"), num = badge.querySelector(".rb-num"), sub = badge.querySelector("em");
 
   function paint(frac) {
@@ -111,7 +114,7 @@
     d.innerHTML = '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="20"/><path d="M15 25l7 7 12-14"/></svg><div><b>' +
       (last ? "Course complete" : name + " complete") + "</b><span>" +
       (last ? "Now pick a venue and start your paper." : left + (left === 1 ? " unit" : " units") + " to go") + "</span></div>";
-    var pager = document.querySelector(".pager");
-    if (pager) pager.parentNode.insertBefore(d, pager);
+    var anchor = document.querySelector(".breakcard") || document.querySelector(".pager");
+    if (anchor) anchor.parentNode.insertBefore(d, anchor);
   }
 })();
