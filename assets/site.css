@@ -871,3 +871,12 @@ body { background: #fff; color: var(--ink); }
 .unitdone span { color: var(--ink-soft); }
 @keyframes pop { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { .unitnav .prog i { transition: none; } .unitdone { animation: none; } }
+
+/* Story with a picture beside it */
+.storyrow { display: grid; grid-template-columns: 1fr auto; gap: 1.5rem; align-items: stretch; margin: 1.4rem 0 1.8rem; }
+.storyrow .story { margin: 0; }
+.poster { margin: 0; width: 12.5rem; }
+.poster img { display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 6px 18px rgba(4,18,46,.25); }
+.poster figcaption { font-size: 0.8rem; color: var(--ink-soft); margin-top: 0.4rem; line-height: 1.3; }
+@media (max-width: 48rem) { .storyrow { grid-template-columns: 1fr; } .poster { width: 11rem; } }
+.storyrow .story { display: flex; flex-direction: column; justify-content: center; }
