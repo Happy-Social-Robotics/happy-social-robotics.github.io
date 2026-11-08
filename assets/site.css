@@ -1117,3 +1117,16 @@ body > main, body > .page { flex: 1; }
 .breakcard svg { flex: none; width: 2.2rem; height: 2.2rem; color: var(--d-acc); }
 .breakcard b { display: block; font-size: 0.98rem; line-height: 1.25; }
 .breakcard em { display: block; font-style: normal; font-size: 0.88rem; color: var(--d-soft); margin-top: 0.15rem; }
+
+/* Break videos: thumbnail, click to play on the page */
+.breakcard ul { grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); gap: 1rem; }
+.breakcard li.vcard { display: flex; flex-direction: column; }
+.vthumb, .vplayer { position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; margin: 0 0 0.6rem; padding: 0; border: 1px solid var(--d-line); border-radius: 8px; overflow: hidden; background: #000; cursor: pointer; }
+.vthumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.85; transition: opacity 0.2s, transform 0.3s; }
+.vthumb:hover img { opacity: 1; transform: scale(1.03); }
+.vthumb i { position: absolute; left: 50%; top: 50%; width: 3.6rem; height: 3.6rem; margin: -1.8rem 0 0 -1.8rem; border-radius: 50%; background: rgba(4, 18, 46, 0.82); border: 2px solid #fff; }
+.vthumb i::after { content: ""; position: absolute; left: 1.35rem; top: 0.95rem; border: 0.9rem solid transparent; border-left: 1.4rem solid #fff; border-right: 0; }
+.vplayer { cursor: default; }
+.vplayer iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.breakcard li.vcard b { font-size: 1rem; }
+.breakcard li.vcard em { margin-top: 0.1rem; }
