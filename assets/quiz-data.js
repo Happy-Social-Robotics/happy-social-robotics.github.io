@@ -7,15 +7,15 @@ window.QUIZ_SETS = {
   "blurb": "Twelve questions on the six introductory videos.",
   "items": [
    {
-    "q": "Stanford's Jackrabbot is described as a prototype of a new generation of social robot. What is it designed to learn?",
+    "q": "Stanford's Jackrabbot is a social robot prototype. What is it designed to learn?",
     "o": [
      "How to hold a conversation with children",
-     "The unwritten rules of pedestrian behavior, so it can move among people",
+     "The unwritten rules of walking among people",
      "How to read emotion from a person's voice",
      "How to assemble objects with a human partner"
     ],
     "a": 1,
-    "why": "The video description says robots must understand the unwritten rules of pedestrian behavior before they can move freely in crowded spaces."
+    "why": "Robots must learn the unwritten rules of pedestrian behavior before they can move freely in crowds."
    },
    {
     "q": "What does Jackrabbot suggest about what makes a robot social?",
@@ -43,15 +43,15 @@ window.QUIZ_SETS = {
     "q": "Why does Breazeal say robots are useful as scientific tools for studying human behavior?",
     "o": [
      "They are cheaper than recruiting participants",
-     "They can perform nonverbal cues in a precisely controlled way, which people do automatically and cannot easily control",
+     "They can perform cues in a precisely controlled way; people cannot",
      "They never make errors",
      "They remove the need for ethics review"
     ],
     "a": 1,
-    "why": "Humans produce many social cues subconsciously, so it is hard to vary one cue at a time. A robot can do that."
+    "why": "People produce cues without noticing, so varying one at a time is hard. A robot can."
    },
    {
-    "q": "In the coaching example in her talk, advice quality was identical for a robot and a computer. What difference did she report?",
+    "q": "In her coaching example the advice was identical. What differed?",
     "o": [
      "People interacted with the robot significantly more",
      "People trusted the computer more",
@@ -59,7 +59,7 @@ window.QUIZ_SETS = {
      "People followed the computer's advice more closely"
     ],
     "a": 0,
-    "why": "She uses it to argue that physical embodiment matters. Treat a talk's summary as a lead: find the original study before you cite the result."
+    "why": "She uses it to argue embodiment matters. Treat a talk as a lead: find the original study before citing it."
    },
    {
     "q": "Kismet's facial expressions are generated from a continuous space defined by which three dimensions?",
@@ -128,15 +128,15 @@ window.QUIZ_SETS = {
     "why": "The researcher in the video describes storytelling as a way to assess language ability and as a signal for the robot's belief about engagement."
    },
    {
-    "q": "The PARO clip gives which reason for using an animal-like robot with dementia patients?",
+    "q": "The PARO clip gives which reason for an animal-like robot?",
     "o": [
-     "Patients who are hard to reach may respond to animals more easily than to people",
+     "Hard-to-reach patients may respond to animals more easily",
      "Seals are cheap to manufacture",
      "Patients cannot see human faces",
      "Regulations require animal shapes"
     ],
     "a": 0,
-    "why": "The description says uncommunicative patients may respond to animals more easily, and that PARO offers the comfort of a pet without the care burden."
+    "why": "Uncommunicative patients may respond to animals more easily, and PARO offers a pet's comfort without the care burden."
    }
   ]
  },
@@ -166,17 +166,6 @@ window.QUIZ_SETS = {
     ],
     "a": 0,
     "why": "The tortoises used lights to interact in a seemingly social way, with no explicit communication. The other robots came decades later."
-   },
-   {
-    "q": "Why do Fong et al. separate insect-inspired swarm robots from individualized social robots?",
-    "o": [
-     "Swarm robots are always smaller",
-     "In anonymous societies individuals do not matter, while individualized societies involve recognizing individuals and forming relationships",
-     "Swarm robots cannot move",
-     "Swarm robots use spoken language"
-    ],
-    "a": 1,
-    "why": "This course follows the individualized tradition: partners who recognize each other, have histories and follow norms."
    }
   ]
  },
@@ -259,15 +248,15 @@ window.QUIZ_SETS = {
     "why": "Experience is the capacity to feel, such as hunger. Agency is the capacity to act and plan, such as self-control."
    },
    {
-    "q": "In Hancock et al.'s (2011) meta-analysis, which group of factors was most strongly associated with trust in human-robot interaction?",
+    "q": "In Hancock et al.'s (2011) meta-analysis, which factors were most linked to trust?",
     "o": [
      "Human characteristics such as personality",
-     "Robot-related factors, especially performance such as reliability",
+     "Robot performance, such as reliability",
      "The color of the robot",
      "The environment alone"
     ],
     "a": 1,
-    "why": "Performance had the largest association. The authors found little evidence for human-related factors, based on a limited set of studies."
+    "why": "Performance had the largest association. Evidence for human factors was thin."
    }
   ]
  },
@@ -288,9 +277,9 @@ window.QUIZ_SETS = {
     "why": "The categories differ in goals and methods, and one paper can contribute to more than one."
    },
    {
-    "q": "In designing a robot's facial expressions, what is the difference between believability and readability?",
+    "q": "For a robot's face, what is the difference between believability and readability?",
     "o": [
-     "Believability is how life-like the behavior looks; readability is how well observers interpret the intended expression",
+     "Believability: how life-like it looks. Readability: how well people read the expression",
      "Believability is speed; readability is size",
      "They mean the same thing",
      "Readability is about text on a screen"
@@ -420,81 +409,81 @@ window.QUIZ_SETS.review = {
   blurb: "Eight study-design questions that start from the videos.",
   items: [
     {
-      q: "Jackrabbot has no face and does not speak. You want to know whether people can read its intent from how it moves. Which first study fits?",
+      q: "Jackrabbot has no face and never speaks. How would you test whether people read its intent from movement?",
       o: [
-        "Show videos of the robot taking different paths toward a doorway and ask people what it will do next",
+        "Show videos of different paths toward a doorway; ask what it will do next",
         "Ask participants whether they like the robot",
         "Add a screen face and see if people smile more",
         "Measure how long the battery lasts in a crowd"
       ],
       a: 0,
-      why: "It changes one variable (the path) and measures one outcome (predicted intent). How people read intent from a robot's path, and how it should signal that it will yield, is an open question in Unit 6."
+      why: "One variable (the path), one outcome (predicted intent). How a robot should signal it will yield is open (Unit 6)."
     },
     {
-      q: "Breazeal argues a robot can repeat a nonverbal cue exactly, which people cannot. Which question uses that strength best?",
+      q: "A robot can repeat a cue exactly; people cannot. Which question uses that strength?",
       o: [
         "Which robot is cheapest to build?",
-        "Does one gesture, identical for every participant and changed in only one condition, change how trustworthy people rate the robot?",
+        "Does one identical gesture, changed in one condition only, change trust ratings?",
         "Do people like robots in general?",
         "How fast can the robot speak?"
       ],
       a: 1,
-      why: "Holding everything else fixed while varying a single cue is what a robot allows and a human partner does not. It also leads to a follow-up: which cues are universal and which depend on culture?"
+      why: "Holding everything fixed but one cue is what a robot allows. Follow-up: which cues depend on culture?"
     },
     {
-      q: "A robot's expression can be believable (it looks life-like) or readable (observers interpret it as intended). Breazeal's robot Kismet is built around expressions. Which design separates the two?",
+      q: "Kismet's expressions can be believable or readable. How would you separate the two?",
       o: [
-        "Ask observers to name the emotion shown (readability), then separately rate how life-like it looks (believability)",
+        "Ask observers to name the emotion (readable), then rate how life-like it looks (believable)",
         "Ask observers only whether they like the robot",
         "Count how many people stop to look",
         "Measure how fast the motors move"
       ],
       a: 0,
-      why: "The two are different properties, so they need different questions about the same clips. A related open question: do expressions designed for faces carry over to robots with no face?"
+      why: "Two properties need two questions about the same clips. Open: do face expressions carry over to robots with no face?"
     },
     {
-      q: "Mori called the uncanny valley a hypothesis and said movement amplifies it. Which study would test it most fairly?",
+      q: "Mori called the valley a hypothesis, and said movement amplifies it. Which study tests it fairly?",
       o: [
         "Cite it as an established law and skip testing",
         "Rate one near-human robot at a single level of realism",
-        "Ask affinity ratings across a range of human likeness, with movement on and off",
+        "Rate affinity across a range of likeness, movement on and off",
         "Interview one expert about it"
       ],
       a: 2,
-      why: "A real test needs several levels of likeness and a movement condition. Whether the valley holds for movement, voice and behavior, and not just faces, is still open."
+      why: "A real test needs several levels of likeness and a movement condition. Whether it holds beyond faces is still open."
     },
     {
-      q: "Tega updates a belief about a child's engagement during a story. Which study would show whether that adaptation matters?",
+      q: "Tega adapts to a child's engagement. Which study shows whether that matters?",
       o: [
         "Show the adaptive robot to one child once",
         "Ask adults which robot looks nicer",
-        "Compare adaptive Tega with a fixed-behavior Tega over several sessions, measuring engagement each time",
+        "Compare adaptive and fixed Tega over several sessions",
         "Count how many words the robot says"
       ],
       a: 2,
-      why: "A comparison condition and repeated sessions are what make it a test of adaptation. Most studies are still single sessions, so a multi-week design stands out."
+      why: "A comparison and repeated sessions make it a test of adaptation. Most studies are single sessions."
     },
     {
-      q: "The PARO clip suggests patients who are hard to reach may respond more easily to an animal. What would a careful study add that the clip cannot give?",
+      q: "The clip suggests hard-to-reach patients respond to animals. What would a careful study add?",
       o: [
-        "A comparison condition, such as usual care or a non-robot activity, plus follow-up over weeks",
+        "A comparison, such as usual care, plus follow-up over weeks",
         "More videos of PARO",
         "A larger robot",
         "A script for the caregivers to read aloud"
       ],
       a: 0,
-      why: "Without a comparison you cannot tell what the robot changed, and without follow-up you cannot tell for how long. Who benefits, and what consent means for people who cannot fully evaluate the robot, belong in the same paper (Unit 7)."
+      why: "Without a comparison you cannot tell what the robot changed; without follow-up, for how long. Consent belongs in the same paper (Unit 7)."
     },
     {
-      q: "Jackrabbot has no face and never speaks, yet it is social through movement. Breazeal's robots use body language and expression. Which research question follows from putting them side by side?",
+      q: "Jackrabbot is social through movement; Breazeal's robots use expression. Which question follows?",
       o: [
         "Which robot is more expensive?",
-        "Which single signal (gaze, voice, timing or movement) is enough for people to treat a robot as social, and does it depend on the situation?",
+        "Which single signal is enough for people to treat a robot as social?",
         "Are robots better than screens at everything?",
         "Should every robot have a face?"
       ],
       a: 1,
-      why: "It compares channels instead of whole robots, which is how a beginner can isolate an effect. The four signals return in Units 5 and 6."
+      why: "It compares channels instead of whole robots, so you can isolate an effect."
     },
     {
       q: "Which of these is narrow enough for a first study?",
@@ -502,10 +491,10 @@ window.QUIZ_SETS.review = {
         "Social robots for children",
         "Will robots replace teachers?",
         "How should robots feel?",
-        "Does a robot's gaze toward the book, instead of toward the child, change how much preschoolers recall of a story?"
+        "Does gaze toward the book, not the child, change how much preschoolers recall?"
       ],
       a: 3,
-      why: "It names one population, one setting, one behavior and one outcome, so a result is possible. The other three are fields or opinions. Unit 7 shows how to narrow a topic step by step."
+      why: "One population, one setting, one behavior, one outcome. The others are fields or opinions (Unit 7)."
     }
   ]
 };
