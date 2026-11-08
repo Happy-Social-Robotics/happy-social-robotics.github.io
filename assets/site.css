@@ -521,3 +521,16 @@ body { background: #fff; color: var(--ink); }
 .paper.overview ul.cues, .paper.overview ol.steps, .paper.overview ol.track { padding-left: 0; margin-left: 0; }
 .paper.overview ol.track { margin-top: 1.2rem; }
 .paper.overview ul.cues { margin-bottom: 2.4rem; }
+
+/* path: vertical on phones, horizontal on wider screens */
+.track li.p1 i { border-color: #5b7bbf; color: #3f5f9f; }
+.track li.p3 i { border-color: var(--ink); }
+@media (min-width: 48rem) {
+  .paper.overview ol.track { display: grid; grid-template-columns: repeat(8, 1fr); margin-top: 1.6rem; }
+  .track::before { left: 6.25%; right: 6.25%; top: 1.05rem; bottom: auto; width: auto; height: 3px; }
+  .track li.phase { display: none; }
+  .track a { display: block; text-align: center; padding: 0 0.15rem; }
+  .track i { margin: 0 auto 0.6rem; }
+  .track b { display: block; font-size: 0.98rem; }
+  .track span { display: block; font-size: 0.88rem; line-height: 1.3; margin-top: 0.15rem; }
+}
