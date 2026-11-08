@@ -412,3 +412,100 @@ window.QUIZ_SETS = {
     window.QUIZ_SETS["v" + (i + 1)] = { hidden: true, title: "Video " + (i + 1), items: v.slice(c[0], c[1]) };
   });
 })();
+
+/* Unit 2: research-direction questions (scenario based, built on the videos). */
+window.QUIZ_SETS.review = {
+  unit: "Unit 2",
+  title: "Think like a researcher",
+  blurb: "Eight study-design questions that start from the videos.",
+  items: [
+    {
+      q: "Jackrabbot has no face and does not speak. You want to know whether people can read its intent from how it moves. Which first study fits?",
+      o: [
+        "Show videos of the robot taking different paths toward a doorway and ask people what it will do next",
+        "Ask participants whether they like the robot",
+        "Add a screen face and see if people smile more",
+        "Measure how long the battery lasts in a crowd"
+      ],
+      a: 0,
+      why: "It changes one variable (the path) and measures one outcome (predicted intent). How people read intent from a robot's path, and how it should signal that it will yield, is an open question in Unit 6."
+    },
+    {
+      q: "Breazeal argues a robot can repeat a nonverbal cue exactly, which people cannot. Which question uses that strength best?",
+      o: [
+        "Which robot is cheapest to build?",
+        "Does one gesture, identical for every participant and changed in only one condition, change how trustworthy people rate the robot?",
+        "Do people like robots in general?",
+        "How fast can the robot speak?"
+      ],
+      a: 1,
+      why: "Holding everything else fixed while varying a single cue is what a robot allows and a human partner does not. It also leads to a follow-up: which cues are universal and which depend on culture?"
+    },
+    {
+      q: "Kismet's expressions need to be believable and readable. Which design separates the two?",
+      o: [
+        "Ask observers to name the emotion shown (readability), then separately rate how life-like it looks (believability)",
+        "Ask observers only whether they like the robot",
+        "Count how many people stop to look",
+        "Measure how fast the motors move"
+      ],
+      a: 0,
+      why: "The two are different properties, so they need different questions about the same clips. A related open question: do expressions designed for faces carry over to robots with no face?"
+    },
+    {
+      q: "Mori called the uncanny valley a hypothesis and said movement amplifies it. Which study would test it most fairly?",
+      o: [
+        "Cite it as an established law and skip testing",
+        "Rate one near-human robot at a single level of realism",
+        "Ask affinity ratings across a range of human likeness, with movement on and off",
+        "Interview one expert about it"
+      ],
+      a: 2,
+      why: "A real test needs several levels of likeness and a movement condition. Whether the valley holds for movement, voice and behavior, and not just faces, is still open."
+    },
+    {
+      q: "Tega updates a belief about a child's engagement during a story. Which study would show whether that adaptation matters?",
+      o: [
+        "Show the adaptive robot to one child once",
+        "Ask adults which robot looks nicer",
+        "Compare adaptive Tega with a fixed-behavior Tega over several sessions, measuring engagement each time",
+        "Count how many words the robot says"
+      ],
+      a: 2,
+      why: "A comparison condition and repeated sessions are what make it a test of adaptation. Most studies are still single sessions, so a multi-week design stands out."
+    },
+    {
+      q: "The PARO clip suggests patients who are hard to reach may respond more easily to an animal. What would a careful study add that the clip cannot give?",
+      o: [
+        "A comparison condition, such as usual care or a non-robot activity, plus follow-up over weeks",
+        "More videos of PARO",
+        "A larger robot",
+        "A script for the caregivers to read aloud"
+      ],
+      a: 0,
+      why: "Without a comparison you cannot tell what the robot changed, and without follow-up you cannot tell for how long. Who benefits, and what consent means for people who cannot fully evaluate the robot, belong in the same paper (Unit 7)."
+    },
+    {
+      q: "Jackrabbot has no face. Kismet has no language. Which research question follows from putting them side by side?",
+      o: [
+        "Which robot is more expensive?",
+        "Which single signal (gaze, voice, timing or movement) is enough for people to treat a robot as social, and does it depend on the situation?",
+        "Are robots better than screens at everything?",
+        "Should every robot have a face?"
+      ],
+      a: 1,
+      why: "It compares channels instead of whole robots, which is how a beginner can isolate an effect. The four signals return in Units 5 and 6."
+    },
+    {
+      q: "Which of these is narrow enough for a first study?",
+      o: [
+        "Social robots for children",
+        "Will robots replace teachers?",
+        "How should robots feel?",
+        "Does a robot's gaze toward the book, instead of toward the child, change how much preschoolers recall of a story?"
+      ],
+      a: 3,
+      why: "It names one population, one setting, one behavior and one outcome, so a result is possible. The other three are fields or opinions. Unit 7 shows how to narrow a topic step by step."
+    }
+  ]
+};
