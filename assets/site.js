@@ -11,8 +11,13 @@
   }
 
   var UNITS = ["history", "pioneers", "foundations", "types", "psychology", "behavior", "methods", "publish"];
-  var STEPS = [];
-  UNITS.forEach(function (u) { ["", "2", "3", "4"].forEach(function (k) { STEPS.push(u + k); }); });
+  var PARTS = { history: 3, psychology: 7 }; // every other unit has 4
+  var STEPS = [], LAST = {};
+  UNITS.forEach(function (u) {
+    var n = PARTS[u] || 4;
+    for (var k = 1; k <= n; k++) STEPS.push(u + (k === 1 ? "" : k));
+    LAST[STEPS[STEPS.length - 1]] = true;
+  });
   var total = STEPS.length, MIN_PER_STEP = 1.5;
   if (!document.querySelector(".unitnav")) return;
   var file = (location.pathname.split("/").pop() || "index.html").replace(/\.html$/, "");
@@ -75,12 +80,11 @@
   }
 
   /* arrival: the ring climbs from the last step's share to the new total, with a message */
-  var MSG = {
-    8: ["A quarter done", "You know who built social robots, and why."],
-    16: ["Halfway there", "The hard concepts are behind you."],
-    24: ["Three quarters done", "Only methods and publishing left."],
-    32: ["Course complete", "Now pick a venue and write your paper."]
-  };
+  var MSG = {};
+  MSG[Math.round(total * 0.25)] = ["A quarter done", "You know who built social robots, and why."];
+  MSG[Math.round(total * 0.5)] = ["Halfway there", "The hard concepts are behind you."];
+  MSG[Math.round(total * 0.75)] = ["Three quarters done", "Only methods and publishing left."];
+  MSG[total] = ["Course complete", "Now pick a venue and write your paper."];
   var PLAIN = ["Good start", "Keep going", "Nice pace", "Building momentum", "On a roll", "Stay with it", "Nearly there"];
   function toast(pct, left) {
     var m = MSG[pos] || [PLAIN[pos % PLAIN.length], left + (left === 1 ? " step" : " steps") + " to go"];
@@ -106,10 +110,10 @@
   }
 
   /* end of every unit: a completion card */
-  if (onStep && STEPS.indexOf(file) % 4 === 3) {
+  if (onStep && LAST[file]) {
     var cur = document.querySelector('.unitnav a[aria-current="page"]');
     var name = cur ? cur.textContent.replace(/^\d+\s*/, "") : "Unit";
-    var last = pos === total - 1, left = (total - pos - 1) / 4;
+    var last = pos === total - 1, left = UNITS.length - 1 - UNITS.indexOf(file.replace(/\d+$/, ""));
     var d = document.createElement("div");
     d.className = "unitdone";
     d.innerHTML = '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="20"/><path d="M15 25l7 7 12-14"/></svg><div><b>' +
