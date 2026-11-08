@@ -880,3 +880,8 @@ body { background: #fff; color: var(--ink); }
 .poster figcaption { font-size: 0.8rem; color: var(--ink-soft); margin-top: 0.4rem; line-height: 1.3; }
 @media (max-width: 48rem) { .storyrow { grid-template-columns: 1fr; } .poster { width: 11rem; } }
 .storyrow .story { display: flex; flex-direction: column; justify-content: center; }
+.storyrow:has(.who) { grid-template-columns: auto 1fr auto; }
+.who { margin: 0; width: 9rem; }
+.who img { display: block; width: 100%; height: auto; border-radius: 4px; box-shadow: 0 6px 18px rgba(4,18,46,.25); }
+.who figcaption { font-size: 0.85rem; font-weight: 600; color: var(--blue-900); margin-top: 0.4rem; }
+@media (max-width: 48rem) { .storyrow:has(.who) { grid-template-columns: 1fr; } .who { width: 8rem; } }
