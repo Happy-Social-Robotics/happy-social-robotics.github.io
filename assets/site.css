@@ -680,7 +680,7 @@ body { background: #fff; color: var(--ink); }
 .more p { font-size: 1.02rem; line-height: 1.45; margin: 0.6rem 0 0; }
 
 /* video grid */
-.vids { display: grid; grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr)); gap: 1.4rem; margin: 1.4rem 0; }
+.vids { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.4rem; margin: 1.4rem 0; }
 .vid { border: 1px solid #dbe2ef; border-radius: 4px; overflow: hidden; background: #fff; display: flex; flex-direction: column; }
 .vid .frame { margin: 0; border: 0; border-bottom: 1px solid #dbe2ef; }
 .vid .body { padding: 1rem 1.2rem 1.2rem; }
@@ -738,3 +738,4 @@ body { background: #fff; color: var(--ink); }
 .steps8 b { display: block; }
 .steps8 span { display: block; font-size: 0.95rem; line-height: 1.3; }
 .vid .chips { margin-top: 0.9rem; }
+@media (max-width: 47.99rem) { .vids { grid-template-columns: 1fr; } }
