@@ -1130,3 +1130,4 @@ body > main, body > .page { flex: 1; }
 .vplayer iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .breakcard li.vcard b { font-size: 1rem; }
 .breakcard li.vcard em { margin-top: 0.1rem; }
+.cc .three.two { grid-template-columns: repeat(2, 1fr); }
