@@ -442,7 +442,7 @@ window.QUIZ_SETS.review = {
       why: "Holding everything else fixed while varying a single cue is what a robot allows and a human partner does not. It also leads to a follow-up: which cues are universal and which depend on culture?"
     },
     {
-      q: "Kismet's expressions need to be believable and readable. Which design separates the two?",
+      q: "A robot's expression can be believable (it looks life-like) or readable (observers interpret it as intended). Breazeal's robot Kismet is built around expressions. Which design separates the two?",
       o: [
         "Ask observers to name the emotion shown (readability), then separately rate how life-like it looks (believability)",
         "Ask observers only whether they like the robot",
@@ -486,7 +486,7 @@ window.QUIZ_SETS.review = {
       why: "Without a comparison you cannot tell what the robot changed, and without follow-up you cannot tell for how long. Who benefits, and what consent means for people who cannot fully evaluate the robot, belong in the same paper (Unit 7)."
     },
     {
-      q: "Jackrabbot has no face. Kismet has no language. Which research question follows from putting them side by side?",
+      q: "Jackrabbot has no face and never speaks, yet it is social through movement. Breazeal's robots use body language and expression. Which research question follows from putting them side by side?",
       o: [
         "Which robot is more expensive?",
         "Which single signal (gaze, voice, timing or movement) is enough for people to treat a robot as social, and does it depend on the situation?",
@@ -509,3 +509,13 @@ window.QUIZ_SETS.review = {
     }
   ]
 };
+
+/* The Mori, Tega and PARO scenario questions belong with those videos (Units 5, 4 and 7),
+   so they move out of the Unit 2 set and join the per-video sets. */
+(function () {
+  var moved = window.QUIZ_SETS.review.items.splice(3, 3);
+  window.QUIZ_SETS.v4.items.push(moved[0]);
+  window.QUIZ_SETS.v5.items.push(moved[1]);
+  window.QUIZ_SETS.v6.items.push(moved[2]);
+  window.QUIZ_SETS.review.blurb = "Five study-design questions that start from the first two videos.";
+})();
