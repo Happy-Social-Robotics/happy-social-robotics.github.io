@@ -10,9 +10,10 @@
     });
   }
 
-  var STEPS = ["history", "history2", "pioneers", "pioneers2", "foundations", "foundations2", "types", "types2",
-    "psychology", "psychology2", "behavior", "behavior2", "methods", "methods2", "publish", "publish2"];
-  var total = STEPS.length, MIN_PER_STEP = 3;
+  var UNITS = ["history", "pioneers", "foundations", "types", "psychology", "behavior", "methods", "publish"];
+  var STEPS = [];
+  UNITS.forEach(function (u) { ["", "2", "3", "4"].forEach(function (k) { STEPS.push(u + k); }); });
+  var total = STEPS.length, MIN_PER_STEP = 1.5;
   if (!document.querySelector(".unitnav")) return;
   var file = (location.pathname.split("/").pop() || "index.html").replace(/\.html$/, "");
   var pos = file === "references" ? total : Math.max(0, STEPS.indexOf(file)); // steps finished on arrival
@@ -75,10 +76,10 @@
 
   /* arrival: the ring climbs from the last step's share to the new total, with a message */
   var MSG = {
-    4: ["A quarter done", "You know who built social robots, and why."],
-    8: ["Halfway there", "The hard concepts are behind you."],
-    12: ["Three quarters done", "Only methods and publishing left."],
-    16: ["Course complete", "Now pick a venue and write your paper."]
+    8: ["A quarter done", "You know who built social robots, and why."],
+    16: ["Halfway there", "The hard concepts are behind you."],
+    24: ["Three quarters done", "Only methods and publishing left."],
+    32: ["Course complete", "Now pick a venue and write your paper."]
   };
   var PLAIN = ["Good start", "Keep going", "Nice pace", "Building momentum", "On a roll", "Stay with it", "Nearly there"];
   function toast(pct, left) {
@@ -105,10 +106,10 @@
   }
 
   /* end of every unit: a completion card */
-  if (onStep && STEPS.indexOf(file) % 2 === 1) {
+  if (onStep && STEPS.indexOf(file) % 4 === 3) {
     var cur = document.querySelector('.unitnav a[aria-current="page"]');
     var name = cur ? cur.textContent.replace(/^\d+\s*/, "") : "Unit";
-    var last = pos === total - 1, left = (total - pos - 1) / 2;
+    var last = pos === total - 1, left = (total - pos - 1) / 4;
     var d = document.createElement("div");
     d.className = "unitdone";
     d.innerHTML = '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="24" cy="24" r="20"/><path d="M15 25l7 7 12-14"/></svg><div><b>' +
@@ -117,4 +118,23 @@
     var anchor = document.querySelector(".breakcard") || document.querySelector(".pager");
     if (anchor) anchor.parentNode.insertBefore(d, anchor);
   }
+})();
+
+/* Break videos: thumbnail first, player on click */
+(function () {
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest && e.target.closest(".vthumb");
+    if (!btn) return;
+    var card = btn.parentNode, id = card.getAttribute("data-id");
+    var f = document.createElement("iframe");
+    f.src = "https://www.youtube-nocookie.com/embed/" + id + "?autoplay=1&rel=0";
+    f.title = btn.getAttribute("aria-label").replace(/^Play: /, "");
+    f.allow = "accelerometer; autoplay; encrypted-media; picture-in-picture";
+    f.setAttribute("allowfullscreen", "");
+    f.referrerPolicy = "strict-origin-when-cross-origin";
+    var box = document.createElement("div");
+    box.className = "vplayer";
+    box.appendChild(f);
+    card.replaceChild(box, btn);
+  });
 })();
