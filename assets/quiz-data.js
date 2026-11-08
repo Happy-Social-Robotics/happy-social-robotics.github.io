@@ -415,7 +415,7 @@ window.QUIZ_SETS = {
 
 /* Unit 2: research-direction questions (scenario based, built on the videos). */
 window.QUIZ_SETS.review = {
-  unit: "Unit 2",
+  unit: "Research",
   title: "Think like a researcher",
   blurb: "Eight study-design questions that start from the videos.",
   items: [
@@ -519,3 +519,27 @@ window.QUIZ_SETS.review = {
   window.QUIZ_SETS.v6.items.push(moved[2]);
   window.QUIZ_SETS.review.blurb = "Five study-design questions that start from the first two videos.";
 })();
+
+/* Unit 1: history and people. */
+window.QUIZ_SETS.hist = {
+  unit: "Unit 1",
+  title: "How robots began",
+  blurb: "Five questions on the people behind the first robots.",
+  items: [
+    { q: "Where does the word “robot” come from?",
+      o: ["A Greek word for machine", "A Czech word for forced labor, used in a 1921 play", "A Japanese word for puppet", "An engineering term from General Motors"],
+      a: 1, why: "It comes from the Czech robota. Karel Čapek’s play R.U.R. brought it to the world, and his brother Josef is credited with suggesting it." },
+    { q: "W. Grey Walter’s tortoise robots in the late 1940s could seek light and avoid obstacles. What was surprising about them?",
+      o: ["They were controlled by a person with a remote", "Simple parts produced lifelike behavior without a plan", "They could hold conversations", "They used cameras to recognize faces"],
+      a: 1, why: "A very small circuit produced behavior that looked purposeful. Early evidence that behavior can feel alive without being complicated." },
+    { q: "What did the first industrial robot arm, Unimate, do after it was installed at General Motors in 1961?",
+      o: ["Talked with workers", "Handled hot metal parts so people did not have to", "Taught apprentices", "Inspected cars with cameras"],
+      a: 1, why: "Unimate was a tool: strong and repeatable, but with no interest in the people around it. Social robots are the opposite goal." },
+    { q: "Masahiro Mori’s 1970 essay proposed that liking a robot rises as it looks more human, and then what?",
+      o: ["Keeps rising forever", "Drops sharply when it is almost, but not quite, human", "Stays flat", "Depends only on its voice"],
+      a: 1, why: "That dip is the uncanny valley. Mori developed the idea while thinking about prosthetic hands." },
+    { q: "A rolling ball with no face reacts smoothly when people walk past. Is it a social robot?",
+      o: ["No, it needs a human face", "No, it needs to speak", "Yes, it can be social through natural movement and timing", "Only if it has a name"],
+      a: 2, why: "Social means interacting with people in ways people find natural. Faces and speech are options, not requirements." }
+  ]
+};
