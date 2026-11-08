@@ -23,6 +23,7 @@
 
   var total = 0;
   Object.keys(data).forEach(function (k) {
+    if (data[k].hidden) return;
     total += data[k].items.length;
     cards[k] = card(k, data[k].unit, data[k].title, data[k].blurb, data[k].items.length);
   });

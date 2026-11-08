@@ -26,7 +26,7 @@
 
   function build(root) {
     var names = (root.getAttribute("data-sets") || "").split(",").map(function (s) { return s.trim(); });
-    if (names.indexOf("all") !== -1) names = Object.keys(SETS);
+    if (names.indexOf("all") !== -1) names = Object.keys(SETS).filter(function (k) { return !SETS[k].hidden; });
     var showTitles = root.hasAttribute("data-titles");
     root.innerHTML = "";
 
