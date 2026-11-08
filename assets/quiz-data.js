@@ -403,3 +403,12 @@ window.QUIZ_SETS = {
   ]
  }
 };
+
+/* Per-video question sets used on course/watch.html. Hidden from the quiz library. */
+(function () {
+  var v = window.QUIZ_SETS.video.items;
+  var cuts = [[0, 2], [2, 5], [5, 6], [6, 10], [10, 11], [11, 12]];
+  cuts.forEach(function (c, i) {
+    window.QUIZ_SETS["v" + (i + 1)] = { hidden: true, title: "Video " + (i + 1), items: v.slice(c[0], c[1]) };
+  });
+})();
