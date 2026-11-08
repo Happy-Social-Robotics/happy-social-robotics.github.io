@@ -1054,3 +1054,26 @@ body > main, body > .page { flex: 1; }
   .storycard .story { grid-column: 1 / -1; grid-row: 2; }
   .storycard .pic { grid-row: 1; height: 14rem; }
 }
+
+/* Progress ring (replaces the thin bar) */
+.ringbadge { position: fixed; right: 1rem; bottom: 1rem; z-index: 60; display: flex; align-items: center; gap: 0.7rem; padding: 0.35rem 1.1rem 0.35rem 0.35rem; background: #0d1830; border: 1px solid var(--d-line); border-radius: 999px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55); color: #fff; }
+.ringbadge svg { width: 4.4rem; height: 4.4rem; transform: rotate(-90deg); flex: none; }
+.ringbadge circle { fill: none; stroke-width: 7; }
+.ringbadge .rb-track { stroke: var(--d-line); }
+.ringbadge .rb-arc { stroke: var(--d-acc); stroke-linecap: round; }
+.ringbadge .rb-num { position: absolute; left: 0.35rem; top: 0.35rem; width: 4.4rem; height: 4.4rem; display: grid; place-items: center; font-size: 1.1rem; font-weight: 800; }
+.ringbadge .rb-txt { display: flex; flex-direction: column; line-height: 1.25; }
+.ringbadge .rb-txt strong { font-size: 0.95rem; }
+.ringbadge .rb-txt em { font-style: normal; font-size: 0.85rem; color: var(--d-soft); }
+.ringbadge.done { border-color: #fff; }
+.ringbadge.done .rb-arc { stroke: #fff; }
+.ringtoast { position: fixed; right: 1rem; bottom: 6.6rem; z-index: 61; max-width: 20rem; padding: 0.9rem 1.1rem; background: var(--d-acc); color: #04122e; border-radius: 12px; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.5); opacity: 0; transform: translateY(12px); transition: opacity 0.4s, transform 0.4s; }
+.ringtoast.show { opacity: 1; transform: none; }
+.ringtoast b { display: block; font-size: 1.35rem; line-height: 1.1; margin-bottom: 0.25rem; }
+.ringtoast span { font-size: 0.98rem; line-height: 1.35; }
+@media (max-width: 40rem) {
+  .ringbadge { padding: 0.3rem; right: 0.7rem; bottom: 0.7rem; }
+  .ringbadge .rb-txt { display: none; }
+  .ringtoast { right: 0.7rem; left: 0.7rem; max-width: none; bottom: 6rem; }
+}
+@media (prefers-reduced-motion: reduce) { .ringtoast { transition: none; } }
