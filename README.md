@@ -11,7 +11,7 @@ Palette: black, white and navy on a blue background.
 | `index.html` | Home |
 | `people.html` | People (placeholder until the team template is added) |
 | `quizzes.html` | Quiz library (pick a set, or a mixed review) |
-| `course/` | Beginner course on social robotics (10 pages) |
+| `course/` | Beginner course on social robotics (8 units, each in 2 short parts). Optional portraits: add `assets/images/people/{capek,walter,devol-engelberger,mori,breazeal,shibata,dautenhahn,reeves-nass}.jpg` (initials show until then) |
 | `assets/site.css`, `site.js` | Shared style and mobile menu |
 | `assets/quiz.js`, `quiz-data.js`, `quiz-library.js` | Quiz engine, questions, library page |
 
