@@ -1042,3 +1042,15 @@ body { min-height: 100vh; display: flex; flex-direction: column; }
 body > main, body > .page { flex: 1; }
 .story p { font-family: var(--sans); font-size: 1.12rem; }
 .poster { width: 10rem; } .who { width: 7.5rem; }
+
+/* Opening card: portrait | story | poster, equal-width pictures filling the full card height */
+.storycard { display: grid; grid-template-columns: 11rem 1fr 11rem; min-height: 17rem; margin: 1.4rem 0 1.8rem; border: 1px solid var(--d-line); border-radius: 6px; overflow: hidden; background: linear-gradient(135deg, #12337a, #0a1b45); }
+.storycard .story { margin: 0; padding: 1.6rem 1.8rem; background: none; border: 0; border-radius: 0; display: flex; flex-direction: column; justify-content: center; }
+.storycard .pic { position: relative; margin: 0; background: #04122e; min-height: 12rem; }
+.storycard .pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top; border-radius: 0; box-shadow: none; }
+.storycard .pic figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.6rem 0.7rem 0.6rem; font-size: 0.85rem; font-weight: 600; line-height: 1.25; color: #fff; background: linear-gradient(transparent, rgba(4, 18, 46, 0.92)); }
+@media (max-width: 48rem) {
+  .storycard { grid-template-columns: 1fr 1fr; min-height: 0; }
+  .storycard .story { grid-column: 1 / -1; grid-row: 2; }
+  .storycard .pic { grid-row: 1; height: 14rem; }
+}
