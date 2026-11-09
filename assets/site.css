@@ -1281,12 +1281,12 @@ body.qfocus .paper > *:not(.focus-host) { opacity: 0.3; filter: blur(1px); point
 
 /* one section at a time */
 .js-beats .paper { padding-bottom: 14vh; }
-.js-beats .beat { margin-bottom: 20vh; transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease; }
+.js-beats .beat { margin-bottom: 8vh; transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease; }
 .js-beats .beat:last-child { margin-bottom: 0; }
 .js-beats .beat.future { opacity: 0.1; transform: translateY(2.2rem); filter: blur(1px); pointer-events: none; }
 .js-beats .beat.past { opacity: 0.18; }
 .js-beats .beat.now { opacity: 1; transform: none; filter: none; }
-@media (max-width: 40rem) { .js-beats .beat { margin-bottom: 12vh; } }
+@media (max-width: 40rem) { .js-beats .beat { margin-bottom: 6vh; } }
 @media (prefers-reduced-motion: reduce) { .js-beats .beat { transition: none; transform: none !important; } }
 .kicker.steps .dots { display: inline-flex; align-items: center; gap: 0.4rem; }
 .ringbadge .rb-txt { display: none; }
@@ -1303,6 +1303,11 @@ body.qfocus .paper > *:not(.focus-host) { opacity: 0.3; filter: blur(1px); point
 .unitdone > div { display: flex; flex-direction: column; align-items: center; }
 
 /* each section fills most of a screen, so the next one never starts inside a tall window */
-.js-beats .beat { min-height: 72vh; }
+.js-beats .beat { min-height: 46vh; }
 .js-beats .beat:last-child { min-height: 0; }
 .js-beats .paper { padding-bottom: 8vh; }
+.scrollcue { position: fixed; left: 50%; bottom: 1.2rem; z-index: 40; transform: translateX(-50%); width: 2.4rem; height: 2.4rem; display: grid; place-items: center; border: 1px solid var(--d-line); border-radius: 50%; background: var(--d-s1); color: var(--d-soft); transition: opacity 0.4s; animation: cue 1.8s ease-in-out infinite; pointer-events: none; }
+.scrollcue svg { width: 1.2rem; height: 1.2rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.scrollcue.hide { opacity: 0; }
+@keyframes cue { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
+@media (prefers-reduced-motion: reduce) { .scrollcue { animation: none; } }

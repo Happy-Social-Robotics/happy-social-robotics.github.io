@@ -211,10 +211,16 @@
     return s;
   });
   document.body.classList.add("js-beats");
+  var cue = document.createElement("div");
+  cue.className = "scrollcue";
+  cue.setAttribute("aria-hidden", "true");
+  cue.innerHTML = '<svg viewBox="0 0 24 24"><path d="M5 9l7 7 7-7"/></svg>';
+  document.body.appendChild(cue);
   var ticking = false;
   function update() {
     ticking = false;
     var vh = window.innerHeight, now = 0;
+    cue.classList.toggle("hide", (window.pageYOffset || 0) > 40);
     var atEnd = window.pageYOffset + vh >= document.documentElement.scrollHeight - 4;
     beats.forEach(function (b, i) { if (b.getBoundingClientRect().top < vh * 0.6) now = i; });
     if (atEnd) now = beats.length - 1;
