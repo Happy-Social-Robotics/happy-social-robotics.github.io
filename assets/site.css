@@ -1393,3 +1393,8 @@ details.fold .cc { margin-top: 0.6rem; }
 .page-head { background: var(--d-s1); border-bottom: 1px solid var(--d-line); padding: clamp(2.2rem, 6vw, 3.5rem) 0; }
 .page-head h1 { font-size: clamp(2.2rem, 4.2vw, 3rem); }
 .page-head .lead { color: var(--d-soft); }
+
+/* all banners share the home banner's size */
+.hero, .page-head { display: flex; align-items: center; min-height: 296px; padding: 0; }
+.hero > .container, .page-head > .container { width: 100%; }
+.hero .hero-grid { width: 100%; }
