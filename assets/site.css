@@ -1193,3 +1193,12 @@ body > main, body > .page { flex: 1; }
 body { font-weight: 350; letter-spacing: -0.005em; }
 h1, h2, .paper h1, .paper h2 { font-weight: 400; letter-spacing: -0.012em; }
 b, strong { font-weight: 600; }
+
+/* Every heading, claim and question in the serif */
+.overview h2, .paper h2, .vid h2, .vleft h2, .vsolo h2, .breakcard h2, .unitdone b { font-family: var(--serif) !important; font-weight: 400; }
+.overview h2, .paper h2 { font-size: 1.65rem; }
+.vleft h2, .vsolo h2, .vid h2 { font-size: 1.45rem !important; }
+.card2 h3, .person h2, .formgrid b, .apps b, .meet b, .strip b { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; }
+.cc .claim { font-family: var(--serif); font-weight: 500; font-size: clamp(1.35rem, 1.9vw, 1.65rem); line-height: 1.25; }
+.qg-text { font-family: var(--serif); font-weight: 500; font-size: 1.5rem; line-height: 1.25; }
+.qg-opt { font-weight: 500; }
