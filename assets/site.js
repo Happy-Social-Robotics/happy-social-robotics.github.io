@@ -218,6 +218,7 @@
     var atEnd = window.pageYOffset + vh >= document.documentElement.scrollHeight - 4;
     beats.forEach(function (b, i) { if (b.getBoundingClientRect().top < vh * 0.6) now = i; });
     if (atEnd) now = beats.length - 1;
+    if ((window.pageYOffset || 0) < 8 && !atEnd) now = 0; // the first section is always the one you start on
     beats.forEach(function (b, i) {
       b.classList.toggle("now", i === now);
       b.classList.toggle("past", i < now);

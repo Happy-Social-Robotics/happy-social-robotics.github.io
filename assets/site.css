@@ -1294,3 +1294,15 @@ body.qfocus .paper > *:not(.focus-host) { opacity: 0.3; filter: blur(1px); point
 .rb-menu svg { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
 .js-beats .beat .pager { margin-top: 2.5rem; }
 .ringbadge .rb-menu svg { width: 1.1rem; height: 1.1rem; transform: none; }
+
+/* unit complete: soft green, centred */
+.unitdone { flex-direction: column; justify-content: center; text-align: center; gap: 0.5rem; padding: 1.4rem 1.3rem; background: #18261f; border: 1px solid #35584a; border-left: 1px solid #35584a; border-radius: 10px; }
+.unitdone svg { color: #7fc4a6; width: 2.6rem; height: 2.6rem; }
+.unitdone b { color: #d9efe5; font-size: 1.45rem; }
+.unitdone span { color: #9fc4b4; }
+.unitdone > div { display: flex; flex-direction: column; align-items: center; }
+
+/* each section fills most of a screen, so the next one never starts inside a tall window */
+.js-beats .beat { min-height: 72vh; }
+.js-beats .beat:last-child { min-height: 0; }
+.js-beats .paper { padding-bottom: 8vh; }
