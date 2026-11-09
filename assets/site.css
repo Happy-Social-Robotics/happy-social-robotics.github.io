@@ -1388,3 +1388,8 @@ details.fold .cc { margin-top: 0.6rem; }
 .funnel div:nth-child(3) { background: #364560; }
 .funnel div:nth-child(4) { background: #2c3a52; }
 .funnel div:nth-child(5) { background: #222e43; }
+
+/* every page header uses the same calm slate as the home page */
+.page-head { background: var(--d-s1); border-bottom: 1px solid var(--d-line); padding: clamp(2.2rem, 6vw, 3.5rem) 0; }
+.page-head h1 { font-size: clamp(2.2rem, 4.2vw, 3rem); }
+.page-head .lead { color: var(--d-soft); }
