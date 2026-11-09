@@ -1398,3 +1398,10 @@ details.fold .cc { margin-top: 0.6rem; }
 .hero, .page-head { display: flex; align-items: center; min-height: 296px; padding: 0; }
 .hero > .container, .page-head > .container { width: 100%; }
 .hero .hero-grid { width: 100%; }
+
+/* team */
+.team { list-style: none; margin: 0 auto; padding: 0; max-width: 62rem; display: grid; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); gap: 1rem; }
+.member { text-align: center; background: var(--d-s1); border: 1px solid var(--d-line); border-radius: 10px; padding: 1.8rem 1rem 1.5rem; }
+.member .mono { display: grid; place-items: center; width: 4.2rem; height: 4.2rem; margin: 0 auto 1rem; border-radius: 50%; border: 1px solid var(--d-line); background: var(--d-s2); color: var(--d-acc); font-family: var(--serif); font-size: 1.5rem; }
+.member h2 { font-size: 1.3rem; margin: 0 0 0.25rem; border: 0; padding: 0; }
+.member p { margin: 0; color: var(--d-soft); font-size: 0.95rem; }
