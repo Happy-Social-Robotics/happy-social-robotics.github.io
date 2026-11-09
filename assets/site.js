@@ -36,7 +36,7 @@
   badge.innerHTML =
     '<svg viewBox="0 0 64 64" aria-hidden="true"><circle class="rb-track" cx="32" cy="32" r="' + R + '"/>' +
     '<circle class="rb-arc" cx="32" cy="32" r="' + R + '" stroke-dasharray="' + C.toFixed(2) + '" stroke-dashoffset="' + C.toFixed(2) + '"/></svg>' +
-    '<b class="rb-num">0%</b><span class="rb-txt"><em></em></span><button class="rb-menu" type="button" aria-expanded="false">Contents</button>';
+    '<b class="rb-num">0%</b><span class="rb-txt"><em hidden></em></span><button class="rb-menu" type="button" aria-expanded="false" aria-label="Course contents"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 5h14M3 10h14M3 15h14"/></svg></button>';
   document.body.appendChild(badge);
   var hdr = document.querySelector(".site-header");
   function place() { if (hdr) document.documentElement.style.setProperty("--hh", hdr.getBoundingClientRect().height + "px"); }
@@ -63,6 +63,7 @@
     badge.classList.toggle("done", pct >= 100);
     badge.setAttribute("aria-valuenow", String(pct));
     var left = Math.max(0, Math.ceil((1 - frac) * total * MIN_PER_STEP));
+    badge.title = (pct >= 100 ? "Course complete" : "About " + left + " min left");
     sub.textContent = pct >= 100 ? "Course complete" : pct === 0 ? "About " + total * MIN_PER_STEP + " min in all" : "About " + left + " min left";
   }
   function target() {
@@ -112,7 +113,7 @@
   paint(Math.max(0, pos - 1) / total);
   if (pos > 0) {
     tween(Math.max(0, pos - 1) / total, pos / total, 1100, function () { paint(target()); });
-    setTimeout(function () { toast(Math.round(pos / total * 100), total - pos); }, reduce ? 0 : 500);
+    if (MSG[pos]) setTimeout(function () { toast(Math.round(pos / total * 100), total - pos); }, reduce ? 0 : 500);
   } else {
     paint(0);
   }
@@ -195,7 +196,7 @@
   var kids = Array.prototype.slice.call(art.children), groups = [], cur = null;
   function starts(n) {
     return n.tagName === "H2" || n.classList.contains("vrow") || n.classList.contains("breakcard") ||
-      n.classList.contains("unitdone") || n.classList.contains("pager");
+      n.classList.contains("unitdone");
   }
   kids.forEach(function (n, i) {
     if (cur === null || (starts(n) && !(n.tagName === "H2" && groups.length === 1 && cur.length <= 2))) { cur = []; groups.push(cur); }

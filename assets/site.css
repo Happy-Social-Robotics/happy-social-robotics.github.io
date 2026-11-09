@@ -1280,12 +1280,17 @@ body.qfocus .paper > *:not(.focus-host) { opacity: 0.3; filter: blur(1px); point
 .stepnav:hover, .stepnav:focus-visible { color: var(--d-text); border-color: var(--d-soft); }
 
 /* one section at a time */
-.js-beats .paper { padding-bottom: 28vh; }
-.js-beats .beat { margin-bottom: 36vh; transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease; }
+.js-beats .paper { padding-bottom: 14vh; }
+.js-beats .beat { margin-bottom: 20vh; transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease; }
 .js-beats .beat:last-child { margin-bottom: 0; }
 .js-beats .beat.future { opacity: 0.1; transform: translateY(2.2rem); filter: blur(1px); pointer-events: none; }
 .js-beats .beat.past { opacity: 0.18; }
 .js-beats .beat.now { opacity: 1; transform: none; filter: none; }
-@media (max-width: 40rem) { .js-beats .beat { margin-bottom: 22vh; } }
+@media (max-width: 40rem) { .js-beats .beat { margin-bottom: 12vh; } }
 @media (prefers-reduced-motion: reduce) { .js-beats .beat { transition: none; transform: none !important; } }
 .kicker.steps .dots { display: inline-flex; align-items: center; gap: 0.4rem; }
+.ringbadge .rb-txt { display: none; }
+.rb-menu { padding: 0.3rem 0.2rem 0.3rem 0.6rem; display: grid; place-items: center; }
+.rb-menu svg { width: 1.1rem; height: 1.1rem; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; }
+.js-beats .beat .pager { margin-top: 2.5rem; }
+.ringbadge .rb-menu svg { width: 1.1rem; height: 1.1rem; transform: none; }
