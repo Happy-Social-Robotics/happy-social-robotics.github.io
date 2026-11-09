@@ -198,8 +198,16 @@
     return n.tagName === "H2" || n.classList.contains("vrow") || n.classList.contains("breakcard") ||
       n.classList.contains("unitdone");
   }
-  kids.forEach(function (n, i) {
-    if (cur === null || (starts(n) && !(n.tagName === "H2" && groups.length === 1 && cur.length <= 2))) { cur = []; groups.push(cur); }
+  var MEDIA = "svg,img,.gallery,.dg,figure,.quiz,.vrow,iframe,.formgrid,.apps,.meter,.strip,.storycard,.tgame,table";
+  function hasMedia(nodes) {
+    return nodes.some(function (n) {
+      if (n.matches && n.matches(MEDIA) && !n.closest(".kicker")) return true;
+      return Array.prototype.some.call(n.querySelectorAll ? n.querySelectorAll(MEDIA) : [], function (m) { return !m.closest(".kicker"); });
+    });
+  }
+  kids.forEach(function (n) {
+    var split = cur === null || starts(n) || (n.classList.contains("cc") && hasMedia(cur));
+    if (split) { cur = []; groups.push(cur); }
     cur.push(n);
   });
   if (groups.length < 2) return;
@@ -210,11 +218,15 @@
     g.forEach(function (n) { s.appendChild(n); });
     return s;
   });
-  /* a first section that is too short on its own takes the next one with it */
-  while (beats.length > 1 && beats[0].getBoundingClientRect().height < window.innerHeight * 0.32) {
-    var nxt = beats.splice(1, 1)[0];
-    while (nxt.firstChild) beats[0].appendChild(nxt.firstChild);
-    nxt.parentNode.removeChild(nxt);
+  /* a section that is only a line or two of text, with no diagram, takes the next one with it */
+  var k = 0;
+  while (k < beats.length - 1) {
+    var b0 = beats[k];
+    if (!hasMedia(Array.prototype.slice.call(b0.children)) && b0.getBoundingClientRect().height < window.innerHeight * 0.3) {
+      var nxt = beats.splice(k + 1, 1)[0];
+      while (nxt.firstChild) b0.appendChild(nxt.firstChild);
+      nxt.parentNode.removeChild(nxt);
+    } else k++;
   }
   if (beats.length < 2) return;
   document.body.classList.add("js-beats");
