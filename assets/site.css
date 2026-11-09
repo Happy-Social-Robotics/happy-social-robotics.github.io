@@ -1311,3 +1311,4 @@ body.qfocus .paper > *:not(.focus-host) { opacity: 0.3; filter: blur(1px); point
 .scrollcue.hide { opacity: 0; }
 @keyframes cue { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
 @media (prefers-reduced-motion: reduce) { .scrollcue { animation: none; } }
+.focus-host .vleft { opacity: 1; filter: none; }

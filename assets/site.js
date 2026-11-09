@@ -158,7 +158,7 @@
 
 /* Quiz focus: when a quiz sits in the middle of the screen it grows and the rest of the page fades back */
 (function () {
-  var quizzes = document.querySelectorAll(".paper .quiz");
+  var quizzes = Array.prototype.filter.call(document.querySelectorAll(".paper .quiz"), function (q) { return !q.closest(".vrow"); }); // quizzes beside a video stay with it
   if (!quizzes.length || !("IntersectionObserver" in window)) return;
   var active = new Set(), armed = false;
   /* only a scroll away from the top arms it; at the top of the page nothing is enlarged or dimmed */
