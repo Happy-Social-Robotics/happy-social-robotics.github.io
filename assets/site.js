@@ -154,3 +154,29 @@
     card.replaceChild(box, btn);
   });
 })();
+
+/* Quiz focus: when a quiz sits in the middle of the screen it grows and the rest of the page fades back */
+(function () {
+  var quizzes = document.querySelectorAll(".paper .quiz");
+  if (!quizzes.length || !("IntersectionObserver" in window)) return;
+  var active = new Set();
+  function apply() {
+    document.querySelectorAll(".focus-host").forEach(function (n) { n.classList.remove("focus-host"); });
+    quizzes.forEach(function (q) { q.classList.remove("is-focus"); });
+    var first = null;
+    quizzes.forEach(function (q) { if (!first && active.has(q)) first = q; });
+    if (first) {
+      first.classList.add("is-focus");
+      var host = first.closest(".paper > *");
+      if (host) host.classList.add("focus-host");
+      document.body.classList.add("qfocus");
+    } else {
+      document.body.classList.remove("qfocus");
+    }
+  }
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) active.add(e.target); else active.delete(e.target); });
+    apply();
+  }, { rootMargin: "-45% 0px -45% 0px" });
+  quizzes.forEach(function (q) { io.observe(q); });
+})();
