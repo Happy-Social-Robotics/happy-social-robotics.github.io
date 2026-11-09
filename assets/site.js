@@ -230,6 +230,8 @@
     cue.classList.toggle("hide", (window.pageYOffset || 0) > 40);
     var atEnd = window.pageYOffset + vh >= document.documentElement.scrollHeight - 4;
     beats.forEach(function (b, i) { if (b.getBoundingClientRect().top < vh * 0.6) now = i; });
+    /* a section holding a quiz stays the bright one until it is nearly off screen */
+    if (now > 0 && beats[now - 1].querySelector(".quiz") && beats[now - 1].getBoundingClientRect().bottom > vh * 0.3) now = now - 1;
     if (atEnd) now = beats.length - 1;
     if ((window.pageYOffset || 0) < 8 && !atEnd) now = 0; // the first section is always the one you start on
     beats.forEach(function (b, i) {
