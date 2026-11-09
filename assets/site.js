@@ -295,3 +295,15 @@
   });
   paint(); check();
 })();
+
+/* the unit-complete card shows up only once the page's quizzes are done */
+(function () {
+  var card = document.querySelector(".paper .unitdone");
+  var qs = Array.prototype.slice.call(document.querySelectorAll(".paper .quiz"));
+  if (!card || !qs.length) return;
+  var host = card.closest(".beat") && card.closest(".beat").children.length === 1 ? card.closest(".beat") : card;
+  function done() { return qs.every(function (q) { return q.getAttribute("data-done") === "1"; }); }
+  function paint() { host.classList.toggle("unitdone-wait", !done()); }
+  document.addEventListener("quizdone", function () { setTimeout(paint, 0); });
+  paint();
+})();
