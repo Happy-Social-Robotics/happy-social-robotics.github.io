@@ -532,3 +532,62 @@ window.QUIZ_SETS.hist = {
       a: 2, why: "Social means interacting with people in ways people find natural. Faces and speech are options, not requirements." }
   ]
 };
+
+/* Harder answer options: every wrong answer is close to the right one, so you have to think.
+   Keyed by question text; the correct option keeps its position. */
+(function () {
+  var W = {
+    "Stanford's Jackrabbot is a social robot prototype. What is it designed to learn?": ["How to hand objects to people in a hallway", "How to guide visitors to a destination", "How to avoid obstacles using a fixed map"],
+    "What does Jackrabbot suggest about what makes a robot social?": ["A social robot needs a face, but not a voice", "A social robot needs speech, but not a face", "A robot is social only when it can learn each person's name"],
+    "In her talk, what gap did Cynthia Breazeal say she saw in robotics when she began building Kismet in 1997?": ["Robots could sense people but could not move around them", "Robots had been built for people, but only in laboratories", "Robotics focused on speech recognition, not on expression"],
+    "Why does Breazeal say robots are useful as scientific tools for studying human behavior?": ["They can show a cue more naturally than a person can", "They respond to participants in a more varied way than people do", "They remove bias because participants know they are machines"],
+    "In her coaching example the advice was identical. What differed?": ["People followed the robot's advice significantly more", "People rated the robot's advice as more accurate", "People trusted the robot more, but interacted with it less"],
+    "Kismet's facial expressions are generated from a continuous space defined by which three dimensions?": ["Arousal, valence and animacy", "Warmth, valence and stance", "Valence, stance and intensity"],
+    "What does Mori's uncanny valley describe?": ["Affinity rises with human likeness, then levels off near full human likeness", "Affinity falls as a robot looks more human, then recovers", "Affinity drops sharply at moderate likeness, then rises steadily"],
+    "Which example does Mori use to illustrate the valley?": ["An industrial robot arm placed near people", "A talking doll that recites recorded phrases", "A chess-playing machine with a mechanical arm"],
+    "According to Mori's talk, what happens to the valley when movement is added?": ["The valley becomes shallower", "The valley shifts toward lower human likeness", "Only the valley deepens; the peaks stay the same"],
+    "What design advice does Mori give for reaching a safe level of affinity?": ["Make the face realistic but keep the movement simple", "Match the robot's movement to its appearance", "Make the robot look human but keep it still"],
+    "While telling stories with a preschooler, what does the Tega robot update based on the child's responses?": ["Its estimate of which story the child prefers", "Its model of the child's reading level", "Its record of how many questions were answered correctly"],
+    "The PARO clip gives which reason for an animal-like robot?": ["Animal shapes avoid the uncanny valley entirely", "Patients prefer animals to caregivers", "Animal robots are easier to clean and maintain"],
+    "Fong, Nourbakhsh and Dautenhahn (2003) define socially interactive robots as robots for which what is important?": ["Humanlike appearance and movement", "Autonomy from human operators", "The ability to use natural language"],
+    "Which early example do Fong et al. cite as a precursor of social robotics?": ["Unimate, the first industrial arm", "Shakey, a robot built at SRI", "ELIZA, the early chatbot"],
+    "Belpaeme et al. (2018) reported that robot tutors achieved outcomes similar to human tutoring under which condition?": ["Only in the first few sessions", "Only for children aged six and over", "Only when a teacher stayed in the room"],
+    "Why do Belpaeme et al. say that using a robot in education must be explicitly justified?": ["Schools rarely have the space to host robots", "Robots have not been shown to help learning at all", "Robot tutors work only for language learning"],
+    "A seal-shaped robot placed in dementia care is best described by which pair?": ["Zoomorphic, tutoring", "Caricatured, socially assistive", "Anthropomorphic, socially assistive"],
+    "What is the main claim of the studies reviewed by Nass and Moon (2000)?": ["People deliberately treat computers as minds once they are convinced the machine has one", "People apply social rules to computers only when the computer has a humanlike voice or face", "People apply social rules to computers only when they are unsure how it works"],
+    "In Epley, Waytz and Cacioppo's three-factor theory, people are more likely to anthropomorphize when they...": ["Are unfamiliar with the agent's technology", "Find the agent's appearance unsettling", "Have a strong sense of control over the agent"],
+    "Gray, Gray and Wegner (2007) identified two dimensions of mind perception. Which pair?": ["Agency and animacy", "Experience and intelligence", "Warmth and agency"],
+    "In Hancock et al.'s (2011) meta-analysis, which factors were most linked to trust?": ["Robot appearance, such as humanlikeness", "How close the robot stood to the person", "Human characteristics such as personality"],
+    "Admoni and Scassellati (2017) sort gaze research in HRI into which three approaches?": ["Perception-centered, design-centered and technology-centered", "Human-centered, task-centered and technology-centered", "Human-centered, design-centered and ethics-centered"],
+    "For a robot's face, what is the difference between believability and readability?": ["Believability: how well people read the expression. Readability: how life-like it looks", "Believability: how quickly it changes. Readability: how large it is", "Believability: how well it matches speech. Readability: how long it holds the expression"],
+    "What did Social LSTM (Alahi et al., 2016) use in place of hand-crafted functions such as social forces?": ["A model trained on robot-human encounters in a lab", "A fixed map of walkways learned in advance", "Remote control by an operator who watches the crowd"],
+    "Which scale measures warmth, competence and discomfort?": ["Godspeed", "NARS (Negative Attitudes toward Robots Scale)", "The Big Five inventory"],
+    "Riek's (2012) review of 54 Wizard of Oz studies found that few papers reported what?": ["How participants were recruited", "Which software controlled the robot's speech", "Whether the wizard could see the participant"],
+    "Which is one of the six ethical concerns about robot elder care raised by Sharkey and Sharkey (2012)?": ["Older people could become dependent on the robot's charging schedule", "Robots could not be adapted to different languages", "Robots would be too costly for care homes"],
+    "What do the Godspeed authors recommend when a difference between two robots is expected to be small?": ["Use a different questionnaire for each robot", "Add more items to each scale", "Report effect sizes instead of significance tests"],
+    "What is the length limit for an HRI 2027 Late Breaking Report?": ["4 to 6 pages, including references", "2 pages, including references", "6 to 8 pages, excluding references"],
+    "Which HRI program is aimed at students at any stage of their academic career?": ["Student Design Competition", "Late Breaking Reports", "Videos and Demos"],
+    "Mori called the valley a hypothesis, and said movement amplifies it. Which study tests it fairly?": ["Rate several near-human robots, with movement always on", "Compare ratings of one robot at two levels of realism", "Interview several experts about their impressions"],
+    "Tega adapts to a child's engagement. Which study shows whether that matters?": ["Compare adaptive and fixed Tega in a single session", "Ask parents which robot their child preferred", "Count how many words the child says to each robot"],
+    "The clip suggests hard-to-reach patients respond to animals. What would a careful study add?": ["A questionnaire for caregivers after one visit", "A second robot with a different shape and no comparison", "A longer first session with each patient"],
+    "Jackrabbot has no face and never speaks. How would you test whether people read its intent from movement?": ["Ask participants which robot they would rather meet", "Show the same path in a video and ask participants to rate its speed", "Add a screen face and measure how often people smile"],
+    "A robot can repeat a cue exactly; people cannot. Which question uses that strength?": ["Do people trust robots more than they trust people?", "Does a robot with a more natural gesture build trust over weeks?", "Which of two robots do participants prefer after meeting both?"],
+    "Kismet's expressions can be believable or readable. How would you separate the two?": ["Ask observers to rate how much they like each expression", "Ask observers to say which expression looks strongest", "Measure how long observers look at each expression"],
+    "Jackrabbot is social through movement; Breazeal's robots use expression. Which question follows?": ["Which of the two robots do people find more likeable?", "Which robot is better at holding attention?", "Is movement or expression more costly to build?"],
+    "Which of these is narrow enough for a first study?": ["Does robot gaze affect how preschoolers learn from stories?", "How do preschoolers respond to robots that look at them?", "Does robot gaze matter for children's learning?"],
+    "Where does the word “robot” come from?": ["A Polish word for servant, used in a 1920 novel", "A Czech word for machine, used in a 1921 play", "A German word for worker, used in a 1927 film"],
+    "W. Grey Walter’s tortoise robots in the late 1940s could seek light and avoid obstacles. What was surprising about them?": ["They learned from experience how to find light", "They were guided by a hidden wire along the floor", "They used a small computer to plan their routes"],
+    "What did the first industrial robot arm, Unimate, do after it was installed at General Motors in 1961?": ["Painted car bodies on the line", "Loaded finished cars onto trucks", "Moved parts between stations beside workers"],
+    "Masahiro Mori’s 1970 essay proposed that liking a robot rises as it looks more human, and then what?": ["Levels off when it is almost, but not quite, human", "Drops sharply as soon as it looks human", "Rises faster when it is almost, but not quite, human"],
+    "A rolling ball with no face reacts smoothly when people walk past. Is it a social robot?": ["No, it needs a face to show it is paying attention", "No, it needs to speak to take part in a conversation", "Only if it recognizes each person by name"]
+  };
+  Object.keys(window.QUIZ_SETS).forEach(function (k) {
+    window.QUIZ_SETS[k].items.forEach(function (it) {
+      var w = W[it.q];
+      if (!w) return;
+      var right = it.o[it.a], o = [], j = 0;
+      for (var i = 0; i < it.o.length; i++) o.push(i === it.a ? right : w[j++]);
+      it.o = o;
+    });
+  });
+})();

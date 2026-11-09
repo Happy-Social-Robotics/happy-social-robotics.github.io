@@ -210,6 +210,13 @@
     g.forEach(function (n) { s.appendChild(n); });
     return s;
   });
+  /* a first section that is too short on its own takes the next one with it */
+  while (beats.length > 1 && beats[0].getBoundingClientRect().height < window.innerHeight * 0.32) {
+    var nxt = beats.splice(1, 1)[0];
+    while (nxt.firstChild) beats[0].appendChild(nxt.firstChild);
+    nxt.parentNode.removeChild(nxt);
+  }
+  if (beats.length < 2) return;
   document.body.classList.add("js-beats");
   var cue = document.createElement("div");
   cue.className = "scrollcue";
@@ -235,4 +242,42 @@
   addEventListener("scroll", req, { passive: true });
   addEventListener("resize", req);
   update();
+})();
+
+
+/* Next stays locked until the page has been read to the end and its quizzes are done */
+(function () {
+  if (!document.querySelector(".kicker.steps")) return;
+  var nexts = [];
+  var top = document.querySelectorAll(".stepnav");
+  if (top.length) nexts.push(top[top.length - 1]);
+  var pg = document.querySelectorAll(".pager a");
+  var lastLink = pg[pg.length - 1];
+  if (lastLink && !/^\s*←/.test(lastLink.textContent)) nexts.push(lastLink);
+  if (!nexts.length) return;
+  var gates = Array.prototype.slice.call(document.querySelectorAll(".paper .quiz, .paper [data-gate]"));
+  var reachedEnd = false;
+  function ready() { return reachedEnd && gates.every(function (g) { return g.getAttribute("data-done") === "1"; }); }
+  function paint() {
+    var ok = ready();
+    nexts.forEach(function (a) {
+      a.classList.toggle("locked", !ok);
+      if (ok) { a.removeAttribute("aria-disabled"); a.removeAttribute("title"); a.removeAttribute("tabindex"); }
+      else { a.setAttribute("aria-disabled", "true"); a.setAttribute("tabindex", "-1"); a.title = "Finish this page to continue"; }
+    });
+  }
+  nexts.forEach(function (a) {
+    a.addEventListener("click", function (e) { if (a.classList.contains("locked")) e.preventDefault(); });
+  });
+  function check() {
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    if (y + window.innerHeight >= document.documentElement.scrollHeight - 80) { if (!reachedEnd) { reachedEnd = true; paint(); } }
+  }
+  addEventListener("scroll", check, { passive: true });
+  addEventListener("resize", check);
+  document.addEventListener("quizdone", function (e) {
+    var g = e.target.closest ? e.target.closest(".quiz, [data-gate]") : null;
+    if (g) { g.setAttribute("data-done", "1"); paint(); }
+  });
+  paint(); check();
 })();
