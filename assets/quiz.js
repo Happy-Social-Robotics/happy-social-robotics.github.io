@@ -183,6 +183,7 @@
           s.missed.push(it);
         }
         s.marks[s.i] = right;
+        if (total === 1) root.dispatchEvent(new CustomEvent("quizdone", { bubbles: true }));
         paintBar(true, prev);
         live.textContent = right ? "Correct." : "Not quite. The answer is " + LETTERS[correctPos] + ".";
         setTimeout(function () { showInsight(it, right, gain, correctPos); }, calm ? 200 : 950);
@@ -247,6 +248,7 @@
 
     function showResults() {
       phase = "done";
+      root.dispatchEvent(new CustomEvent("quizdone", { bubbles: true }));
       var pct = Math.round(100 * s.correct / total);
       var stars = pct >= 90 ? 3 : pct >= 60 ? 2 : 1;
       var scr = h("section", "qg-screen qg-res");
