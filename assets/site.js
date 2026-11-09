@@ -36,11 +36,23 @@
   badge.innerHTML =
     '<svg viewBox="0 0 64 64" aria-hidden="true"><circle class="rb-track" cx="32" cy="32" r="' + R + '"/>' +
     '<circle class="rb-arc" cx="32" cy="32" r="' + R + '" stroke-dasharray="' + C.toFixed(2) + '" stroke-dashoffset="' + C.toFixed(2) + '"/></svg>' +
-    '<b class="rb-num">0%</b><span class="rb-txt"><strong>Course progress</strong><em></em></span>';
+    '<b class="rb-num">0%</b><span class="rb-txt"><em></em></span><button class="rb-menu" type="button" aria-expanded="false">Contents</button>';
   document.body.appendChild(badge);
   var hdr = document.querySelector(".site-header");
   function place() { if (hdr) document.documentElement.style.setProperty("--hh", hdr.getBoundingClientRect().height + "px"); }
   place(); addEventListener("resize", place);
+  var menuBtn = badge.querySelector(".rb-menu");
+  menuBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    var on = document.body.classList.toggle("show-units");
+    menuBtn.setAttribute("aria-expanded", on ? "true" : "false");
+  });
+  document.addEventListener("click", function (e) {
+    if (document.body.classList.contains("show-units") && !e.target.closest(".unitnav")) {
+      document.body.classList.remove("show-units"); menuBtn.setAttribute("aria-expanded", "false");
+    }
+  });
+  addEventListener("keydown", function (e) { if (e.key === "Escape") { document.body.classList.remove("show-units"); menuBtn.setAttribute("aria-expanded", "false"); } });
   var arc = badge.querySelector(".rb-arc"), num = badge.querySelector(".rb-num"), sub = badge.querySelector("em");
 
   function paint(frac) {
