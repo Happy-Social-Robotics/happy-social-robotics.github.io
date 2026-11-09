@@ -1273,3 +1273,19 @@ body.qfocus .paper > *:not(.focus-host) { opacity: 0.3; filter: blur(1px); point
 .qg-opt.is-wrong { background: #3a2a2e; border-color: #a77780; }
 .paper > * { position: relative; }
 .paper > .focus-host { z-index: 5; }
+
+/* top-of-page arrows */
+.stepnavs { display: inline-flex; gap: 0.4rem; margin-left: 0.9rem; }
+.stepnav { display: grid; place-items: center; width: 2rem; height: 2rem; border: 1px solid var(--d-line); border-radius: 50%; color: var(--d-soft); text-decoration: none; font-size: 1.05rem; line-height: 1; border-bottom: 1px solid var(--d-line); transition: color 0.2s, border-color 0.2s; }
+.stepnav:hover, .stepnav:focus-visible { color: var(--d-text); border-color: var(--d-soft); }
+
+/* one section at a time */
+.js-beats .paper { padding-bottom: 28vh; }
+.js-beats .beat { margin-bottom: 36vh; transition: opacity 0.8s ease, transform 0.8s ease, filter 0.8s ease; }
+.js-beats .beat:last-child { margin-bottom: 0; }
+.js-beats .beat.future { opacity: 0.1; transform: translateY(2.2rem); filter: blur(1px); pointer-events: none; }
+.js-beats .beat.past { opacity: 0.18; }
+.js-beats .beat.now { opacity: 1; transform: none; filter: none; }
+@media (max-width: 40rem) { .js-beats .beat { margin-bottom: 22vh; } }
+@media (prefers-reduced-motion: reduce) { .js-beats .beat { transition: none; transform: none !important; } }
+.kicker.steps .dots { display: inline-flex; align-items: center; gap: 0.4rem; }

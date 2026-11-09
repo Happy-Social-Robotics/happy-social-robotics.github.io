@@ -187,3 +187,44 @@
   }, { rootMargin: "-45% 0px -45% 0px" });
   quizzes.forEach(function (q) { io.observe(q); });
 })();
+
+/* One section at a time: the page is cut into beats; the one in view is bright, the rest wait or fade back */
+(function () {
+  var art = document.querySelector(".paper.overview");
+  if (!art || !document.querySelector(".kicker.steps")) return;
+  var kids = Array.prototype.slice.call(art.children), groups = [], cur = null;
+  function starts(n) {
+    return n.tagName === "H2" || n.classList.contains("vrow") || n.classList.contains("breakcard") ||
+      n.classList.contains("unitdone") || n.classList.contains("pager");
+  }
+  kids.forEach(function (n, i) {
+    if (cur === null || (starts(n) && !(n.tagName === "H2" && groups.length === 1 && cur.length <= 2))) { cur = []; groups.push(cur); }
+    cur.push(n);
+  });
+  if (groups.length < 2) return;
+  var beats = groups.map(function (g) {
+    var s = document.createElement("div");
+    s.className = "beat future";
+    art.insertBefore(s, g[0]);
+    g.forEach(function (n) { s.appendChild(n); });
+    return s;
+  });
+  document.body.classList.add("js-beats");
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var vh = window.innerHeight, now = 0;
+    var atEnd = window.pageYOffset + vh >= document.documentElement.scrollHeight - 4;
+    beats.forEach(function (b, i) { if (b.getBoundingClientRect().top < vh * 0.6) now = i; });
+    if (atEnd) now = beats.length - 1;
+    beats.forEach(function (b, i) {
+      b.classList.toggle("now", i === now);
+      b.classList.toggle("past", i < now);
+      b.classList.toggle("future", i > now);
+    });
+  }
+  function req() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  addEventListener("scroll", req, { passive: true });
+  addEventListener("resize", req);
+  update();
+})();
