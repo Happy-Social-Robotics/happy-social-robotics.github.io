@@ -159,12 +159,19 @@
 (function () {
   var quizzes = document.querySelectorAll(".paper .quiz");
   if (!quizzes.length || !("IntersectionObserver" in window)) return;
-  var active = new Set();
+  var active = new Set(), armed = false;
+  /* only a scroll away from the top arms it; at the top of the page nothing is enlarged or dimmed */
+  function arm() {
+    var y = window.pageYOffset || document.documentElement.scrollTop;
+    var now = y > 60;
+    if (now !== armed) { armed = now; apply(); }
+  }
+  addEventListener("scroll", arm, { passive: true });
   function apply() {
     document.querySelectorAll(".focus-host").forEach(function (n) { n.classList.remove("focus-host"); });
     quizzes.forEach(function (q) { q.classList.remove("is-focus"); });
     var first = null;
-    quizzes.forEach(function (q) { if (!first && active.has(q)) first = q; });
+    quizzes.forEach(function (q) { if (!first && armed && active.has(q)) first = q; });
     if (first) {
       first.classList.add("is-focus");
       var host = first.closest(".paper > *");
